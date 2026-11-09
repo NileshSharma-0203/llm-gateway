@@ -1,0 +1,30 @@
+groups:
+  - name: llm-gateway
+    rules:
+      - alert: GatewayHighErrorRate
+        expr: |
+          sum(rate(gateway_requests_total{status=~"5.."}[5m]))
+            / sum(rate(gateway_requests_total[5m])) > 0.02
+        for: 5m
+        labels: { severity: page }
+        annotations: { summary: "More than 2% of gateway requests are failing" }
+      - alert: GatewayProviderCircuitOpen
+        expr: gateway_breaker_state == 2
+        for: 2m
+        labels: { severity: warn }
+        annotations: { summary: "Circuit open for provider {{ $labels.provider }}" }
+      - alert: GatewayShedding
+        expr: sum(rate(gateway_admission_rejected_total[5m])) > 1
+        for: 5m
+        labels: { severity: page }
+        annotations: { summary: "Gateway is shedding load; add capacity or raise limits" }
+      - alert: GatewayAddedLatencyHigh
+        expr: |
+          histogram_quantile(0.99, sum by (le) (rate(gateway_added_latency_seconds_bucket[5m]))) > 0.05
+        for: 10m
+        labels: { severity: warn }
+        annotations: { summary: "Gateway p99 added latency is above 50 ms" }
+      - alert: GatewayTaskPanics
+        expr: increase(gateway_task_panics_total[10m]) > 0
+        labels: { severity: warn }
+        annotations: { summary: "A gateway task panicked; check logs and file a bug" }

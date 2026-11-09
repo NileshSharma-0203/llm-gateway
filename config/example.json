@@ -1,0 +1,46 @@
+{
+  "listen": "0.0.0.0:8080",
+  "workers": 0,
+  "max_connections": 16000,
+  "max_body_bytes": 8388608,
+  "drain_secs": 30,
+  "metrics_token_env": "METRICS_TOKEN",
+  "quota_snapshot_path": "/data/quota.json",
+  "admission": { "max_inflight": 2048, "max_queue": 4096, "max_queue_per_tenant": 1024, "queue_timeout_ms": 5000 },
+  "cache": {
+    "enabled": true, "max_bytes": 268435456, "max_entry_bytes": 1048576, "ttl_secs": 3600,
+    "stale_if_error_secs": 86400, "deterministic_only": true, "share_across_tenants": false
+  },
+  "retry": { "max_attempts": 2, "base_ms": 50, "max_ms": 1000, "budget_ratio": 0.2, "budget_min": 20 },
+  "breaker": { "failure_threshold": 5, "open_ms": 2000, "max_open_ms": 10000, "half_open_probes": 3 },
+  "timeouts": {
+    "connect_ms": 2000, "first_byte_ms": 30000, "idle_stream_ms": 30000, "total_ms": 300000,
+    "client_write_ms": 30000, "client_request_ms": 15000, "keepalive_ms": 75000
+  },
+  "providers": [
+    {
+      "name": "openai", "kind": "openai", "base_url": "http://tls-egress:9001",
+      "host_header": "api.openai.com", "api_key_env": "OPENAI_API_KEY"
+    },
+    {
+      "name": "anthropic", "kind": "anthropic", "base_url": "http://tls-egress:9002",
+      "host_header": "api.anthropic.com", "api_key_env": "ANTHROPIC_API_KEY"
+    }
+  ],
+  "models": [
+    {
+      "alias": "default",
+      "targets": [
+        { "provider": "openai", "model": "REPLACE_WITH_OPENAI_MODEL", "input_usd_per_mtok": 0, "output_usd_per_mtok": 0 },
+        { "provider": "anthropic", "model": "REPLACE_WITH_ANTHROPIC_MODEL", "input_usd_per_mtok": 0, "output_usd_per_mtok": 0 }
+      ]
+    }
+  ],
+  "tenants": [
+    {
+      "name": "team-a",
+      "key_sha256": ["REPLACE_WITH_OUTPUT_OF_generate-key_0000000000000000000000000000"],
+      "rpm": 600, "tpm": 200000, "daily_tokens": 10000000, "max_concurrent": 256, "burst_secs": 10, "models": ["*"]
+    }
+  ]
+}

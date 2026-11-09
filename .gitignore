@@ -1,0 +1,4 @@
+/target
+*.snapshot.json
+.env
+deploy/metrics_token

@@ -1,0 +1,53 @@
+# Assumes a Secret named llm-gateway-secrets (OPENAI_API_KEY, ANTHROPIC_API_KEY,
+# METRICS_TOKEN) and a ConfigMap named llm-gateway-config holding config.json.
+# Set base_url to http://127.0.0.1:9001 and :9002, because tls-egress runs in the pod.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llm-gateway
+spec:
+  replicas: 1 # Rate limits, quotas and the cache are per process; see docs/DEPLOY.md before scaling.
+  selector:
+    matchLabels: { app: llm-gateway }
+  template:
+    metadata:
+      labels: { app: llm-gateway }
+    spec:
+      terminationGracePeriodSeconds: 45
+      securityContext: { runAsNonRoot: true, runAsUser: 10001, fsGroup: 10001 }
+      containers:
+        - name: gateway
+          image: REPLACE_ME/llm-gateway:1.0.0
+          ports: [{ containerPort: 8080, name: http }]
+          envFrom: [{ secretRef: { name: llm-gateway-secrets } }]
+          readinessProbe: { httpGet: { path: /readyz, port: http }, periodSeconds: 2, failureThreshold: 1 }
+          livenessProbe: { httpGet: { path: /healthz, port: http }, periodSeconds: 10 }
+          lifecycle:
+            preStop: { sleep: { seconds: 5 } }
+          resources:
+            requests: { cpu: "1", memory: 512Mi }
+            limits: { memory: 1Gi }
+          securityContext: { allowPrivilegeEscalation: false, readOnlyRootFilesystem: true, capabilities: { drop: ["ALL"] } }
+          volumeMounts:
+            - { name: config, mountPath: /etc/llm-gateway, readOnly: true }
+            - { name: data, mountPath: /data }
+        - name: tls-egress
+          image: REPLACE_ME/tls-egress:1.0.0
+          args: ["127.0.0.1:9001=api.openai.com:443", "127.0.0.1:9002=api.anthropic.com:443"]
+          resources:
+            requests: { cpu: 100m, memory: 64Mi }
+            limits: { memory: 256Mi }
+          securityContext: { allowPrivilegeEscalation: false, readOnlyRootFilesystem: true, capabilities: { drop: ["ALL"] } }
+      volumes:
+        - name: config
+          configMap: { name: llm-gateway-config }
+        - name: data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: llm-gateway
+spec:
+  selector: { app: llm-gateway }
+  ports: [{ port: 80, targetPort: http }]

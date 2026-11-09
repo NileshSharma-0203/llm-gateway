@@ -1,0 +1,30 @@
+[package]
+name = "llm-gateway"
+version = "1.0.0"
+edition = "2021"
+description = "Zero-dependency LLM inference gateway: streaming proxy, per-key limits, caching, failover"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "llm-gateway"
+path = "src/main.rs"
+
+[[bin]]
+name = "mock-upstream"
+path = "src/bin/mock_upstream.rs"
+
+[[bin]]
+name = "loadgen"
+path = "src/bin/loadgen.rs"
+
+[dependencies]
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "unwind"
+debug = false
+strip = true

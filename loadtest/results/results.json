@@ -1,0 +1,1398 @@
+{
+ "overhead": {
+  "non_stream": {
+   "rate_rps": 1000,
+   "rounds": {
+    "direct_p50": [
+     0.632,
+     0.616,
+     0.616
+    ],
+    "direct_p99": [
+     1.264,
+     1.328,
+     1.264
+    ],
+    "gateway_p50": [
+     0.792,
+     0.776,
+     0.744
+    ],
+    "gateway_p99": [
+     2.032,
+     1.872,
+     1.968
+    ],
+    "errors": [
+     0,
+     0,
+     0
+    ]
+   },
+   "median": {
+    "direct_p50": 0.616,
+    "direct_p99": 1.264,
+    "gateway_p50": 0.776,
+    "gateway_p99": 1.968,
+    "errors": 0
+   },
+   "added_p50_ms": 0.16,
+   "added_p99_ms": 0.704
+  },
+  "stream": {
+   "rate_rps": 1000,
+   "rounds": {
+    "direct_p50": [
+     0.616,
+     0.6,
+     0.616
+    ],
+    "direct_p99": [
+     1.264,
+     1.296,
+     1.296
+    ],
+    "gateway_p50": [
+     0.792,
+     0.824,
+     0.824
+    ],
+    "gateway_p99": [
+     2.208,
+     1.776,
+     2.0
+    ],
+    "errors": [
+     0,
+     0,
+     0
+    ]
+   },
+   "median": {
+    "direct_p50": 0.616,
+    "direct_p99": 1.296,
+    "gateway_p50": 0.824,
+    "gateway_p99": 2.0,
+    "errors": 0
+   },
+   "added_p50_ms": 0.208,
+   "added_p99_ms": 0.704
+  }
+ },
+ "throughput": {
+  "direct_non_stream": {
+   "mode": "closed",
+   "target_rps": 0,
+   "conns": 64,
+   "secs": 15.0,
+   "rps": 69496.5,
+   "ok": 1042520,
+   "errors": 0,
+   "cache_hit_rate": 0.0,
+   "mb_per_s": 37.25,
+   "statuses": {
+    "200": 1042520
+   },
+   "ttfb_ms": {
+    "p50": 0.015,
+    "p90": 2.976,
+    "p99": 5.824,
+    "p999": 9.856
+   },
+   "total_ms": {
+    "p50": 0.015,
+    "p90": 2.976,
+    "p99": 5.824,
+    "p999": 9.856
+   },
+   "total_ok_ms": {
+    "p50": 0.015,
+    "p99": 5.824
+   }
+  },
+  "gateway_non_stream": {
+   "mode": "closed",
+   "target_rps": 0,
+   "conns": 64,
+   "secs": 15.0,
+   "rps": 18913.2,
+   "ok": 283702,
+   "errors": 0,
+   "cache_hit_rate": 0.0,
+   "mb_per_s": 10.14,
+   "statuses": {
+    "200": 283702
+   },
+   "ttfb_ms": {
+    "p50": 3.168,
+    "p90": 4.8,
+    "p99": 7.616,
+    "p999": 10.112
+   },
+   "total_ms": {
+    "p50": 3.168,
+    "p90": 4.8,
+    "p99": 7.616,
+    "p999": 10.112
+   },
+   "total_ok_ms": {
+    "p50": 3.168,
+    "p99": 7.616
+   }
+  },
+  "gateway_stream": {
+   "mode": "closed",
+   "target_rps": 0,
+   "conns": 64,
+   "secs": 15.0,
+   "rps": 10678.3,
+   "ok": 160176,
+   "errors": 0,
+   "cache_hit_rate": 0.0,
+   "mb_per_s": 94.09,
+   "statuses": {
+    "200": 160176
+   },
+   "ttfb_ms": {
+    "p50": 5.696,
+    "p90": 8.128,
+    "p99": 11.904,
+    "p999": 17.152
+   },
+   "total_ms": {
+    "p50": 5.696,
+    "p90": 8.128,
+    "p99": 11.904,
+    "p999": 17.152
+   },
+   "total_ok_ms": {
+    "p50": 5.696,
+    "p99": 11.904
+   }
+  },
+  "gateway_cache_hit": {
+   "mode": "closed",
+   "target_rps": 0,
+   "conns": 64,
+   "secs": 15.0,
+   "rps": 29708.1,
+   "ok": 445626,
+   "errors": 0,
+   "cache_hit_rate": 0.9998,
+   "mb_per_s": 15.92,
+   "statuses": {
+    "200": 445626
+   },
+   "ttfb_ms": {
+    "p50": 2.08,
+    "p90": 3.36,
+    "p99": 10.112,
+    "p999": 21.248
+   },
+   "total_ms": {
+    "p50": 2.08,
+    "p90": 3.36,
+    "p99": 10.112,
+    "p999": 21.248
+   },
+   "total_ok_ms": {
+    "p50": 2.08,
+    "p99": 10.112
+   }
+  }
+ },
+ "cache": {
+  "mode": "open",
+  "target_rps": 1000,
+  "conns": 256,
+  "secs": 30.0,
+  "rps": 999.8,
+  "ok": 29995,
+  "errors": 0,
+  "cache_hit_rate": 0.8207,
+  "mb_per_s": 0.54,
+  "statuses": {
+   "200": 29995
+  },
+  "ttfb_ms": {
+   "p50": 0.824,
+   "p90": 51.712,
+   "p99": 52.736,
+   "p999": 59.904
+  },
+  "total_ms": {
+   "p50": 0.824,
+   "p90": 51.712,
+   "p99": 52.736,
+   "p999": 59.904
+  },
+  "total_ok_ms": {
+   "p50": 0.824,
+   "p99": 52.736
+  },
+  "upstream_calls": 5383,
+  "cost_saved_micro_usd": 19201260.0,
+  "cost_spent_micro_usd": 4194840.0
+ },
+ "concurrency": {
+  "mode": "closed",
+  "target_rps": 0,
+  "conns": 2000,
+  "secs": 25.0,
+  "rps": 560.0,
+  "ok": 14000,
+  "errors": 0,
+  "cache_hit_rate": 0.0,
+  "mb_per_s": 3.0,
+  "statuses": {
+   "200": 14000
+  },
+  "ttfb_ms": {
+   "p50": 109.568,
+   "p90": 282.624,
+   "p99": 323.584,
+   "p999": 413.696
+  },
+  "total_ms": {
+   "p50": 3112.96,
+   "p90": 3309.568,
+   "p99": 3375.104,
+   "p999": 3506.176
+  },
+  "total_ok_ms": {
+   "p50": 3112.96,
+   "p99": 3375.104
+  },
+  "concurrent_streams": 2000,
+  "observed_inflight": 2000.0,
+  "rss_idle_kb": 4760,
+  "rss_loaded_kb": 176000,
+  "rss_per_stream_kb": 85.6,
+  "upstream_ttfb_ms": 100
+ },
+ "overload": {
+  "mode": "open",
+  "target_rps": 3000,
+  "conns": 2000,
+  "secs": 20.0,
+  "rps": 2989.7,
+  "ok": 19711,
+  "errors": 40090,
+  "cache_hit_rate": 0.0,
+  "mb_per_s": 0.74,
+  "statuses": {
+   "200": 19711,
+   "503": 40090
+  },
+  "ttfb_ms": {
+   "p50": 0.952,
+   "p90": 202.752,
+   "p99": 202.752,
+   "p999": 206.848
+  },
+  "total_ms": {
+   "p50": 0.952,
+   "p90": 202.752,
+   "p99": 202.752,
+   "p999": 206.848
+  },
+  "total_ok_ms": {
+   "p50": 202.752,
+   "p99": 202.752
+  },
+  "capacity_rps": 1000,
+  "shed": 40090.0
+ },
+ "outage": {
+  "error500": {
+   "mode": "open",
+   "target_rps": 300,
+   "conns": 800,
+   "secs": 45.0,
+   "rps": 299.5,
+   "ok": 13479,
+   "errors": 0,
+   "cache_hit_rate": 0.0,
+   "mb_per_s": 1.08,
+   "statuses": {
+    "200": 13479
+   },
+   "ttfb_ms": {
+    "p50": 21.248,
+    "p90": 22.272,
+    "p99": 24.32,
+    "p999": 43.52
+   },
+   "total_ms": {
+    "p50": 72.704,
+    "p90": 74.752,
+    "p99": 76.8,
+    "p999": 97.28
+   },
+   "total_ok_ms": {
+    "p50": 72.704,
+    "p99": 76.8
+   },
+   "timeline": [
+    [
+     0,
+     "200:primary:BYPASS",
+     278
+    ],
+    [
+     1,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     2,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     3,
+     "200:primary:BYPASS",
+     302
+    ],
+    [
+     4,
+     "200:primary:BYPASS",
+     299
+    ],
+    [
+     5,
+     "200:primary:BYPASS",
+     299
+    ],
+    [
+     6,
+     "200:primary:BYPASS",
+     301
+    ],
+    [
+     7,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     8,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     9,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     10,
+     "200:primary:BYPASS",
+     21
+    ],
+    [
+     10,
+     "200:secondary:BYPASS",
+     279
+    ],
+    [
+     11,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     12,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     13,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     14,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     15,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     16,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     17,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     18,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     19,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     20,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     21,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     22,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     23,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     24,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     25,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     26,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     27,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     28,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     29,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     30,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     31,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     32,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     33,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     34,
+     "200:primary:BYPASS",
+     264
+    ],
+    [
+     34,
+     "200:secondary:BYPASS",
+     35
+    ],
+    [
+     35,
+     "200:primary:BYPASS",
+     301
+    ],
+    [
+     36,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     37,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     38,
+     "200:primary:BYPASS",
+     301
+    ],
+    [
+     39,
+     "200:primary:BYPASS",
+     299
+    ],
+    [
+     40,
+     "200:primary:BYPASS",
+     301
+    ],
+    [
+     41,
+     "200:primary:BYPASS",
+     299
+    ],
+    [
+     42,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     43,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     44,
+     "200:primary:BYPASS",
+     300
+    ]
+   ],
+   "outage_window_s": [
+    10,
+    25
+   ],
+   "secondary_calls": 7214,
+   "breaker_opened": 4.0,
+   "streams_broken_midway": 0,
+   "recovery_lag_s": 9
+  },
+  "reset": {
+   "mode": "open",
+   "target_rps": 300,
+   "conns": 800,
+   "secs": 45.0,
+   "rps": 299.5,
+   "ok": 13479,
+   "errors": 0,
+   "cache_hit_rate": 0.0,
+   "mb_per_s": 1.08,
+   "statuses": {
+    "200": 13479
+   },
+   "ttfb_ms": {
+    "p50": 21.248,
+    "p90": 22.272,
+    "p99": 23.808,
+    "p999": 34.304
+   },
+   "total_ms": {
+    "p50": 72.704,
+    "p90": 74.752,
+    "p99": 76.8,
+    "p999": 87.04
+   },
+   "total_ok_ms": {
+    "p50": 72.704,
+    "p99": 76.8
+   },
+   "timeline": [
+    [
+     0,
+     "200:primary:BYPASS",
+     279
+    ],
+    [
+     1,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     2,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     3,
+     "200:primary:BYPASS",
+     299
+    ],
+    [
+     4,
+     "200:primary:BYPASS",
+     301
+    ],
+    [
+     5,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     6,
+     "200:primary:BYPASS",
+     299
+    ],
+    [
+     7,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     8,
+     "200:primary:BYPASS",
+     301
+    ],
+    [
+     9,
+     "200:primary:BYPASS",
+     299
+    ],
+    [
+     10,
+     "200:primary:BYPASS",
+     22
+    ],
+    [
+     10,
+     "200:secondary:BYPASS",
+     279
+    ],
+    [
+     11,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     12,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     13,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     14,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     15,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     16,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     17,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     18,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     19,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     20,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     21,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     22,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     23,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     24,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     25,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     26,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     27,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     28,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     29,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     30,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     31,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     32,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     33,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     34,
+     "200:primary:BYPASS",
+     263
+    ],
+    [
+     34,
+     "200:secondary:BYPASS",
+     37
+    ],
+    [
+     35,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     36,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     37,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     38,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     39,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     40,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     41,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     42,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     43,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     44,
+     "200:primary:BYPASS",
+     300
+    ]
+   ],
+   "outage_window_s": [
+    10,
+    25
+   ],
+   "secondary_calls": 7216,
+   "breaker_opened": 4.0,
+   "streams_broken_midway": 0,
+   "recovery_lag_s": 9
+  },
+  "hang": {
+   "mode": "open",
+   "target_rps": 300,
+   "conns": 800,
+   "secs": 45.0,
+   "rps": 299.5,
+   "ok": 13478,
+   "errors": 0,
+   "cache_hit_rate": 0.0,
+   "mb_per_s": 1.08,
+   "statuses": {
+    "200": 13478
+   },
+   "ttfb_ms": {
+    "p50": 21.248,
+    "p90": 22.272,
+    "p99": 1024.0,
+    "p999": 1024.0
+   },
+   "total_ms": {
+    "p50": 72.704,
+    "p90": 74.752,
+    "p99": 1064.96,
+    "p999": 1064.96
+   },
+   "total_ok_ms": {
+    "p50": 72.704,
+    "p99": 1064.96
+   },
+   "timeline": [
+    [
+     0,
+     "200:primary:BYPASS",
+     279
+    ],
+    [
+     1,
+     "200:primary:BYPASS",
+     301
+    ],
+    [
+     2,
+     "200:primary:BYPASS",
+     298
+    ],
+    [
+     3,
+     "200:primary:BYPASS",
+     301
+    ],
+    [
+     4,
+     "200:primary:BYPASS",
+     299
+    ],
+    [
+     5,
+     "200:primary:BYPASS",
+     302
+    ],
+    [
+     6,
+     "200:primary:BYPASS",
+     299
+    ],
+    [
+     7,
+     "200:primary:BYPASS",
+     299
+    ],
+    [
+     8,
+     "200:primary:BYPASS",
+     301
+    ],
+    [
+     9,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     10,
+     "200:primary:BYPASS",
+     21
+    ],
+    [
+     11,
+     "200:secondary:BYPASS",
+     546
+    ],
+    [
+     12,
+     "200:secondary:BYPASS",
+     332
+    ],
+    [
+     13,
+     "200:secondary:BYPASS",
+     298
+    ],
+    [
+     14,
+     "200:secondary:BYPASS",
+     302
+    ],
+    [
+     15,
+     "200:secondary:BYPASS",
+     302
+    ],
+    [
+     16,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     17,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     18,
+     "200:secondary:BYPASS",
+     297
+    ],
+    [
+     19,
+     "200:secondary:BYPASS",
+     303
+    ],
+    [
+     20,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     21,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     22,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     23,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     24,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     25,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     26,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     27,
+     "200:primary:BYPASS",
+     269
+    ],
+    [
+     27,
+     "200:secondary:BYPASS",
+     32
+    ],
+    [
+     28,
+     "200:primary:BYPASS",
+     299
+    ],
+    [
+     29,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     30,
+     "200:primary:BYPASS",
+     298
+    ],
+    [
+     31,
+     "200:primary:BYPASS",
+     303
+    ],
+    [
+     32,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     33,
+     "200:primary:BYPASS",
+     298
+    ],
+    [
+     34,
+     "200:primary:BYPASS",
+     303
+    ],
+    [
+     35,
+     "200:primary:BYPASS",
+     299
+    ],
+    [
+     36,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     37,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     38,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     39,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     40,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     41,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     42,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     43,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     44,
+     "200:primary:BYPASS",
+     299
+    ]
+   ],
+   "outage_window_s": [
+    10,
+    25
+   ],
+   "secondary_calls": 5110,
+   "breaker_opened": 3.0,
+   "streams_broken_midway": 0,
+   "recovery_lag_s": 2
+  },
+  "crash": {
+   "mode": "open",
+   "target_rps": 300,
+   "conns": 800,
+   "secs": 45.0,
+   "rps": 299.5,
+   "ok": 13479,
+   "errors": 0,
+   "cache_hit_rate": 0.0,
+   "mb_per_s": 1.08,
+   "statuses": {
+    "200": 13479
+   },
+   "ttfb_ms": {
+    "p50": 21.248,
+    "p90": 22.272,
+    "p99": 24.832,
+    "p999": 46.592
+   },
+   "total_ms": {
+    "p50": 70.656,
+    "p90": 74.752,
+    "p99": 78.848,
+    "p999": 109.568
+   },
+   "total_ok_ms": {
+    "p50": 70.656,
+    "p99": 78.848
+   },
+   "timeline": [
+    [
+     0,
+     "200:primary:BYPASS",
+     279
+    ],
+    [
+     1,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     2,
+     "200:primary:BYPASS",
+     299
+    ],
+    [
+     3,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     4,
+     "200:primary:BYPASS",
+     301
+    ],
+    [
+     5,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     6,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     7,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     8,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     9,
+     "200:primary:BYPASS",
+     314
+    ],
+    [
+     10,
+     "200:secondary:BYPASS",
+     286
+    ],
+    [
+     11,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     12,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     13,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     14,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     15,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     16,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     17,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     18,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     19,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     20,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     21,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     22,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     23,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     24,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     25,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     26,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     27,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     28,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     29,
+     "200:secondary:BYPASS",
+     301
+    ],
+    [
+     30,
+     "200:secondary:BYPASS",
+     299
+    ],
+    [
+     31,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     32,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     33,
+     "200:secondary:BYPASS",
+     300
+    ],
+    [
+     34,
+     "200:primary:BYPASS",
+     273
+    ],
+    [
+     34,
+     "200:secondary:BYPASS",
+     27
+    ],
+    [
+     35,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     36,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     37,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     38,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     39,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     40,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     41,
+     "200:primary:BYPASS",
+     299
+    ],
+    [
+     42,
+     "200:primary:BYPASS",
+     301
+    ],
+    [
+     43,
+     "200:primary:BYPASS",
+     300
+    ],
+    [
+     44,
+     "200:primary:BYPASS",
+     300
+    ]
+   ],
+   "outage_window_s": [
+    10,
+    25
+   ],
+   "secondary_calls": 7213,
+   "breaker_opened": 4.0,
+   "streams_broken_midway": 15.0,
+   "recovery_lag_s": 9
+  }
+ }
+}

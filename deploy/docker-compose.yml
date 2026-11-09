@@ -1,0 +1,43 @@
+services:
+  gateway:
+    build: ..
+    ports: ["8080:8080"]
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY:?set in .env}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:?set in .env}
+      METRICS_TOKEN: ${METRICS_TOKEN:?set in .env}
+    volumes:
+      - ../config/config.json:/etc/llm-gateway/config.json:ro
+      - gateway-data:/data
+    depends_on: [tls-egress]
+    stop_grace_period: 40s
+    ulimits:
+      nofile: 65536
+    restart: unless-stopped
+
+  tls-egress:
+    build: ./tls-egress
+    command: ["0.0.0.0:9001=api.openai.com:443", "0.0.0.0:9002=api.anthropic.com:443"]
+    expose: ["9001", "9002"]
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./alerts.yml:/etc/prometheus/alerts.yml:ro
+      - ./metrics_token:/etc/prometheus/metrics_token:ro
+    ports: ["127.0.0.1:9090:9090"]
+
+  grafana:
+    image: grafana/grafana:11.2.0
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:?set in .env}
+    volumes:
+      - ./grafana/provisioning.yml:/etc/grafana/provisioning/datasources/prometheus.yml:ro
+      - ./grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/gateway.yml:ro
+      - ./grafana/gateway.json:/var/lib/grafana/dashboards/gateway.json:ro
+    ports: ["127.0.0.1:3000:3000"]
+
+volumes:
+  gateway-data:
